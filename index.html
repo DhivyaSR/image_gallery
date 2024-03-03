@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins",sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            padding: 0 8%;
+        }
+        h2{
+            font-size: 3.2rem;
+            text-transform: uppercase;
+            padding: 24px 0;
+        }
+        .Gallery{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            width: 75%;
+            margin: auto;
+        }
+        .Gallery img{
+            margin: 2px;
+            max-width: 200px;
+            max-height: 250px;
+        }
+
+        .Gallery img:hover{
+            cursor: pointer;
+            filter: brightness(70%);
+        }
+        .FullImageView{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            display: none;
+            text-align: center;
+        }
+
+        #FullImage{
+            width: 50%;
+            height: 100%;
+            padding: 24px;
+        }
+
+        .close{
+            position: absolute;
+            color: white;
+            right: 0;
+            padding: 10px;
+        }
+
+        .close:hover{
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Image Gallery</h2>
+        <div class="Gallery">
+            <img id="img1" src="https://fastly.picsum.photos/id/1061/200/300.jpg?hmac=wvuhffnNEQ5g9Q0f7LZiEvh6JEJqL3ppJuHT2M_YJLI" alt="" onclick="FUllView(this.src);">
+            <img src="https://fastly.picsum.photos/id/951/200/300.jpg?hmac=88jOMC9sFPf_Y7l4aMvDLBsqNuoprR9_Rvvbqb0oRPA" alt="" onclick="FUllView(this.src);">
+            <img src="https://fastly.picsum.photos/id/810/200/300.jpg?hmac=HgwlXd-OaLOAqhGyCiZDUb_75EgUI4u0GtS7nfgxd8s" alt="" onclick="FUllView(this.src);">
+            <img src="https://fastly.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk" alt="" onclick="FUllView(this.src);">
+            <img src="https://fastly.picsum.photos/id/777/200/300.jpg?hmac=eJq2XzCPCPppgoS96ReNEmweR3Wloh4ZsbWIgec36Uo" alt="" onclick="FUllView(this.src);">
+            <img src="https://fastly.picsum.photos/id/1035/200/300.jpg?hmac=744aBtkMLjfDyn2TzkMxsFzw2T0L57TMlNGFlX-Qgq0" alt="" onclick="FUllView(this.src);">
+            <img src="https://fastly.picsum.photos/id/129/200/300.jpg?hmac=orJWwWZR-Y_APTSxTwuQsz8j4ROmKGMTOuZEVPyY-3M" alt="" onclick="FUllView(this.src);">
+            <img src="https://fastly.picsum.photos/id/547/200/300.jpg?hmac=O1sHSqamP2AYNG_ADzB7uKiGjh_fmg-Xq4v2KEapg_k" alt="" onclick="FUllView(this.src);">
+        </div>
+        <div class="FullImageView">
+            <p class="close">X</p>
+            <img id="FullImage">
+        </div>
+    </div>
+    <script type="text/javascript">
+        var close_full_view = document.querySelector('.close');
+        function FUllView(Imaglink){
+            document.getElementById('FullImage').src = Imaglink;
+            document.querySelector('.FullImageView').style.display = "block";
+        }
+
+        close_full_view.addEventListener("click",function(){
+            document.querySelector('.FullImageView').style.display = "none";
+        });
+    </script>
+</body>
+</html>
